@@ -1,0 +1,13 @@
+form(action: '/auth/form/', method: 'post')
+  fieldset
+    .field
+      label(for: 'email') Email
+      input(id:  'email', name: 'email', value: '', type: 'text')
+
+    .field
+      label(for: 'password') Password
+      input(id:  'password', name: 'password', value: '', type: 'password')
+
+  .operations
+    span.button
+      input(type: 'submit', value: 'Login')

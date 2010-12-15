@@ -1,0 +1,74 @@
+@page-width: 960px;
+@header-height: 45px;
+@footer-height: 50px;
+
+html, body{
+  height: 100%;
+}
+
+#wrapper {
+  width: @page-width;
+  margin: 0px auto;
+  min-height: 100%;
+  position: relative;
+
+  #sticky {
+    padding-bottom: @footer-height + 40;
+
+    #login {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+    }
+
+    > nav {
+      .box-shadow(0px, 1px, 0px, @base);
+      height:75px;
+      margin-bottom: 25px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid lighten(@background, 6);
+
+      #logo {
+        .ir();
+        background: url(/images/sprite.png) no-repeat 0px 5px;
+        height: @header-height;
+        width: 120px;
+        margin-right: 20px;
+        float: left;
+      }
+
+      menu#header_left {
+        float:left;
+        width:512px;
+      }
+
+      menu#header_right {
+        float: right;
+        font-size: 10pt;
+        text-align: right;
+        width: 310px;
+      }
+
+      #logged_email {
+        color: @text;
+      }
+      #logged_email ,
+      #edit_profile ,
+      #logout {
+        margin-left: 20px;
+        line-height: @header-height;
+      }
+    }
+  }
+}
+
+#footer {
+  border-top: 1px solid desaturate(darken(@background, 8), 40);
+  position: relative;
+  height: @footer-height - 20;
+  width: @page-width;
+  padding: 10px 0px;
+  margin: -1 - @footer-height auto 0px;
+  clear: both;
+  color: @ltext;
+}

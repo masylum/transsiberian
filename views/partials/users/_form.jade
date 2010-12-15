@@ -1,0 +1,31 @@
+-var action
+form(action: '', method: 'post')
+  fieldset
+    h2 Personal information
+    .field(class: validator && validator.hasError('name') ? 'errors' : '')
+      label(for: 'user_name') Name
+      input(id:  'user_name', name: 'user[name]', value: (user && user.name) || '', type: 'text')
+      != showErrors(validator, 'name')
+
+    .field(class: validator && validator.hasError('email') ? 'errors' : '')
+      label(for: 'user_email') Email
+      input(id:  'user_email', name: 'user[email]', value: (user && user.email) || '', type: 'email', autocomplete: 'off')
+      != showErrors(validator, 'email')
+
+  fieldset
+    -if(action == 'edit')
+      h2 Change password
+
+    .field(class: validator && validator.hasError('password') ? 'errors' : '')
+      label(for: 'user_password') Password
+      input(id:  'user_password', name: 'user[password]', value: '', type: 'password', autocomplete: 'off')
+      != showErrors(validator, 'password')
+
+    .field(class: validator && validator.hasError('password_confirmation') ? 'errors' : '')
+      label(for: 'user_password_confirmation') Confirm Password
+      input(id:  'user_password_confirmation', name: 'user[password_confirmation]', value: '', type: 'password')
+      != showErrors(validator, 'password_confirmation')
+
+  .operations
+    span.button
+      input(type: 'submit', value: action && action == 'edit' ? 'Edit' : 'Create')

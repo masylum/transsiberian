@@ -1,0 +1,44 @@
+!!!
+html
+  head
+    title= title || ''
+    link(rel: 'stylesheet', href: '/css/global.css' )
+    link(rel: 'shortcut icon', href: '/favicon.ico')
+
+    -var css
+    -if(css)
+      -each file in css
+        link(rel: 'stylesheet', href: '/css/' + file + '.css' )
+  body
+    #wrapper
+      #sticky
+        nav
+          h1
+            a(href: '/users/dashboard')= GLOBAL.APP_NAME
+
+          menu#header_right
+            span#logged_email= truncate(user.email, 17)
+            a#edit_profile(href: '/users/edit/', class: this.url.match(/user\/account\/(edit|update)\/$/) ? 'active' : '') edit profile
+            a#logout.button(href: '/auth/logout/')
+              span logout
+
+        .clearer
+
+        #content
+          != flashMessages()
+          != body
+
+    #footer
+      p
+        a(href:'#') about us
+        = " &raquo; "
+        a(href:'#') contact us
+
+  -var js
+  -if(js)
+    script(src: '/javascripts/vendor/jquery.js' )
+    script(src: '/javascripts/global.js' )
+
+    -each file in js
+      script(src: '/javascripts/' + file + '.js' )
+

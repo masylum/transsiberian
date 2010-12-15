@@ -1,0 +1,102 @@
+.rounded(@radius: 8px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.rounded-top(@radius: 3px) {
+  -webkit-border-top-left-radius: @radius;
+  -webkit-border-top-right-radius: @radius;
+  -moz-border-radius-topleft: @radius;
+  -moz-border-radius-topright: @radius;
+  border-top-left-radius: @radius;
+  border-top-right-radius: @radius;
+}
+
+.rounded-bottom(@radius: 3px) {
+  -webkit-border-bottom-right-radius: @radius;
+  -webkit-border-bottom-left-radius: @radius;
+  -moz-border-radius-bottomright: @radius;
+  -moz-border-radius-bottomleft: @radius;
+  border-bottom-right-radius: @radius;
+  border-bottom-left-radius: @radius;
+}
+
+.box-shadow(@x:10px, @y:10px, @blur:5px, @color: #ccc) {
+  -moz-box-shadow: @x @y @blur @color;
+  -webkit-box-shadow: @x @y @blur @color;
+  box-shadow: @x @y @blur @color;
+  //behavior: e(%("url(%s/core/production/framework/css3/PIE.txt.htc)", @setup_framework_path));
+}
+
+.box-shadow-inset(@x:10px, @y:10px, @blur:5px, @color: #ccc) {
+  -moz-box-shadow: @x @y @blur @color inset;
+  -webkit-box-shadow: @x @y @blur @color inset;
+  box-shadow: @x @y @blur @color inset;
+  //behavior: e(%("url(%s/core/production/framework/css3/PIE.txt.htc)", @setup_framework_path));
+}
+
+.pull-borders(@color, @dark) {
+  border-bottom-color: darken(@color, @dark);
+  border-right-color: darken(@color, @dark);
+}
+
+.push-borders(@color, @dark) {
+  border-top-color: darken(@color, @dark);
+  border-left-color: darken(@color, @dark);
+}
+
+.float(@width: 250px) {
+  float:left;
+  width:@width;
+}
+
+.ir {
+    display:block;
+    text-indent:-999px;
+    overflow:hidden;
+    background-repeat: none;
+}
+
+.buttonize() {
+  .rounded();
+  .box-shadow-inset(1px, 1px, 0px, #fff);
+  color: @dblue;
+  display:block;
+  font-size:@default;
+  margin:8px;
+  height:25px;
+  line-height:25px;
+  padding:0px 15px;
+  text-shadow:0px 1px 0px #fff;
+  border:1px solid @blue;
+  background:url(/images/sprite_x.png) repeat-x 0px 0px;
+
+  .count {
+    .rounded();
+    .box-shadow-inset(1px, 1px, 0px, darken(@lblue, 5));
+    background: @lblue;
+    padding: 1px 5px 0px;
+    color: @sblue;
+  }
+}
+
+.buttonize-hover() {
+  color: darken(@dblue, 6);
+  border-color: darken(@blue, 6);
+  .pull-borders(@blue, 15);
+  text-decoration: none;
+}
+
+.buttonize-pushed() {
+  .box-shadow(1px, 1px, 0px, #fff);
+  background: @lblue;
+  border:1px solid @blue;
+  .push-borders(@blue, 5);
+  color: @sblue;
+
+  .count {
+    .box-shadow-inset(1px, 1px, 0px, darken(@blue, 5));
+    background: @blue;
+  }
+}

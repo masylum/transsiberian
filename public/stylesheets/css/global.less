@@ -1,0 +1,63 @@
+@import "public/stylesheets/css/reset.less";
+@import "public/stylesheets/css/variables.less";
+@import "public/stylesheets/css/mixins.less";
+
+body {
+  font-family: Helvetica, serif;
+  font-size: 12pt;
+  color: @text;
+  background: @background url(/images/back.png) repeat-x top left;
+}
+
+h1 {
+  font-size: 42pt;
+  font-weight:normal;
+  margin: 10px 0px 20px;
+  font-family: Monaco, console;
+  float: left;
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+h2 {
+  font-size: 28pt;
+  font-weight:normal;
+  color: @text;
+  margin-bottom:10px;
+}
+
+a {
+  color: @link;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px darken(@link, 40);
+  &:hover {
+    text-decoration: underline;
+    color: lighten(@link, 10);
+    text-shadow: 1px 1px 0px darken(@link, 20);
+  }
+}
+
+table {
+  thead {
+    text-shadow: 0px 1px 0px #fff;
+  }
+  th, td {
+    padding: 5px 10px;
+    border: 1px solid lighten(@ltext, 20);
+  }
+}
+
+.section{
+  margin-bottom:20px;
+}
+
+.floated{
+  float:left;
+}
+
+@import "public/stylesheets/css/layout.less";
+@import "public/stylesheets/css/forms.less";
+@import "public/stylesheets/css/elements.less";
+@import "public/stylesheets/css/boxes.less";

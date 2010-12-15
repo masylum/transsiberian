@@ -1,0 +1,104 @@
+@field-color: #aaa;
+@errors-width: 275px;
+
+form {
+  width:100%;
+
+  fieldset {
+    padding: 10px;
+
+    &.floated {
+      .float();
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .field {
+      border-bottom:1px solid @background;
+      .box-shadow(0px, 1px, 0px, @base);
+      padding:10px;
+      width:562px;
+
+      &.floated {
+        .float();
+      }
+
+      &.errors {
+        .rounded();
+        background: lighten(@error, 20);
+        border-bottom-color: lighten(@error, 10);
+        position: relative;
+
+        input,
+        textarea {
+          border-color: @error;
+          .push-borders(@error, 5);
+          color: @error;
+
+          &:hover { border-color: darken(@error, 15); }
+          &:focus { border-color: darken(@error, 25); }
+        }
+
+        label { color: darken(@error, 20); }
+
+        ul.error {
+          .rounded();
+          position:absolute;
+          right: 0 - @errors-width - 40;
+          top: 0px;
+          width: @errors-width;
+          padding: 10px;
+          background: darken(@error, 10);
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  label {
+    text-align:right;
+    padding-right:20px;
+    float:left;
+    width:100px;
+    height:34px;
+    font-size:108%;
+    color:@text;
+    font-size:11pt;
+
+    &.disabled {
+      color: @ltext;
+    }
+  }
+
+  input,
+  textarea {
+    .rounded();
+    .box-shadow(1px, 1px, 0px, lighten(@base, 5));
+    border: 1px solid @background;
+    padding:7px 10px;
+    color: @text;
+    background: lighten(@background, 10);
+
+    &:hover {
+      .box-shadow(1px, 1px, 0px, lighten(@base, 10));
+      background: lighten(@background, 15);
+      color: @text;
+    }
+    &:focus {
+      background: lighten(@background, 20);
+      color: @text;
+    }
+  }
+
+  textarea {
+    width: 400px;
+  }
+
+  .operations{
+    text-align:right;
+    padding:10px;
+    width:562px;
+  }
+}

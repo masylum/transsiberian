@@ -1,0 +1,112 @@
+.button{
+  .rounded();
+  .box-shadow-inset(1px, 1px, 0px, lighten(@base, 20));
+  background: lighten(@base, 10);
+  border: 1px solid darken(@base, 10);
+  .pull-borders(@base, 25);
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover {
+    background: lighten(@base, 20);
+    .box-shadow-inset(1px, 1px, 0px, lighten(@base, 30));
+    .pull-borders(@base, 45);
+    text-decoration: none;
+
+    input {
+      .box-shadow(0px, 0px, 0px, lighten(@base, 20));
+      text-shadow: 0px 1px 0px lighten(@base, 30);
+      background: lighten(@base, 20);
+      color: @background;
+    }
+  }
+
+  &.desactivated{
+    cursor:default;
+
+    &:hover{
+      background: url(/images/sprite_x.png) repeat-x 0px -28px #ddd;
+      border:1px solid #ccc;
+    }
+    span{
+      opacity:0.3;
+    }
+  }
+
+  span, input{
+    .box-shadow(0px, 0px, 0px, lighten(@base, 10));
+    display:inline-block;
+    line-height:18px;
+    padding:5px 10px 3px;
+    text-shadow: 0px 1px 0px lighten(@base, 20);
+    color: @background;
+    font-weight:bold;
+    border:none;
+    background-color:transparent;
+
+    &.icon{
+      background-position:6px;
+      padding-left:28px;
+    }
+  }
+
+  &.small{
+    span, input{
+      padding:3px 7px 0;
+
+      &.icon{
+        background-position:2px 2px;
+        padding-left:21px;
+      }
+    }
+  }
+}
+
+.spreader_card{
+  .rounded();
+  width:258px;
+  margin-right:20px;
+  padding:10px 20px;
+  background: @background;
+  border:1px solid darken(@background, 5);
+  .pull-borders(darken(@background, 5), 5);
+
+  .spreader_doll{
+    float:left;
+    margin-right:30px;
+    width:30px;
+    height:62px;
+    background:url(/images/sprite.png) no-repeat 0px -73px;
+  }
+
+  .details{
+    padding-left: 60px;
+
+    .box{
+      background-color:transparent;
+      color: @text;
+      padding: 3px 20px;
+    }
+  }
+
+  .options{
+    clear:both;
+    text-align:right;
+    margin-top:10px;
+  }
+}
+
+table.tabular {
+  border: none;
+  background: none;
+
+  th, td {
+    border: none;
+    background: none;
+  }
+
+  th {
+    text-align: right;
+  }
+}
+
