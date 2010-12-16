@@ -1,7 +1,6 @@
-require.paths.unshift(__dirname + '/vendor/');
-
 var Db = require('mongodb/db').Db,
     Server = require('mongodb/connection').Server,
+    express_dialect = require('express-dialect'),
     express = require('express');
 
 require('ext');
@@ -20,6 +19,20 @@ db.open(function () {
     return require('./models/mongo/' + thing)(db, app);
   };
 
+  // express-dialect
+  (function () {
+    express_dialect({
+      app: app,
+      path: __dirname + '/locales',
+      title: 'Transsiberian',
+      store: 'mongodb',
+      database: 'translations'
+    }, function (error, dialect) {
+      app.dynamicViewHelpers.t = dialect.dynamic_helpers.t;
+      dialect.app.listen(3001);
+    });
+  }());
+
   // Configuration
   require('./config/config')(app, express);
   require('./config/environments')(app, express);
@@ -34,17 +47,4 @@ db.open(function () {
   require('./controllers/users')(app);
 
   app.listen(3000);
-
-  // express-dialect
-  //(function (app) {
-  //  require('express-dialect')({
-  //    app: app,
-  //    path: __dirname + '/locales',
-  //    title: 'Transsiberian',
-  //    store: 'mongodb',
-  //    database: 'translations'
-  //  }, function (error, dialect) {
-  //    dialect.app.listen(3001);
-  //  });
-  //}(app));
 });

@@ -13,7 +13,9 @@ module.exports = function (app, express) {
     }));
 
     app.use(express.methodOverride());
-    app.use(express.compiler({src: 'public/stylesheets', dest: 'public', enable: ['less'], autocompile: true}));
+
+    // Get rid of that if one day they merge my pull request to "autocompile"
+    app.use(require('../ext/connect/compiler.js')({src: 'public/stylesheets', dest: 'public', enable: ['less'], autocompile: true}));
     app.use(express.staticProvider('public'));
 
     app.use(auth([require('../models/auth')(app).formStrategy()]));

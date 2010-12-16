@@ -12,10 +12,12 @@ module.exports = function (app) {
       },
 
       render = function (options) {
-        return Object.merge({
-          title: GLOBAL.APP_NAME,
+        return {
+          locals: Object.merge({
+            title: GLOBAL.APP_NAME
+          }, options),
           layout: 'private'
-        }, options);
+        };
       };
 
   app.get('/users/welcome', authenticate, function (req, res) {

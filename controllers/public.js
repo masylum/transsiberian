@@ -1,9 +1,11 @@
 module.exports = function (app) {
   var render = function (options) {
-        return Object.merge({
-          title: GLOBAL.APP_NAME,
+        return {
+          locals: Object.merge({
+            title: GLOBAL.APP_NAME
+          }),
           layout: 'public'
-        }, options);
+        };
       };
 
   app.get('', function (req, res) {

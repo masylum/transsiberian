@@ -14,6 +14,7 @@ Transsiberian is really opinionated but it includes all you need to start a node
 
   * MongoDB models using [Mongolia](https://github.com/masylum/mongolia)
   * Basic user creation and authentification
+  * Translations with [express-dialect](https://github.com/masylum/express-dialect) _on port 3001 by default_
   * CSS useful mixins, reset, and basic styles
   * Basic helpers
   * Flash messages
@@ -26,15 +27,16 @@ Copy and paste:
     npm install mongodb
     npm install connect-auth
     npm install express
+    npm install express-dialect
     npm install log4js
     npm install mail
     npm install mongolia
 
 ## TODO (coming soon!)
 
-I'm working on some of these features:
+I'm working to add some of these features:
 
-  * Translations with [express-dialect](https://github.com/masylum/express-dialect)
+  * Publish to npm so its easy to install and mantain
   * Web sockets with [Socket.IO-node](https://github.com/LearnBoost/Socket.IO-node)
   * File uploader
   * Asset manager
