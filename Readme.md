@@ -25,6 +25,7 @@ Transsiberian is really opinionated but it includes all you need to start a node
 Copy and paste:
 
     npm install mongodb
+    npm install ext
     npm install connect-auth
     npm install express
     npm install express-dialect
@@ -37,6 +38,9 @@ Copy and paste:
 I'm working to add some of these features:
 
   * Publish to npm so its easy to install and mantain
+  * Screencast?
+  * Add documentation
+  * Get rid of ext.js, provide a utils library instead.
   * Web sockets with [Socket.IO-node](https://github.com/LearnBoost/Socket.IO-node)
   * File uploader
   * Asset manager
