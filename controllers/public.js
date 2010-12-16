@@ -3,7 +3,7 @@ module.exports = function (app) {
         return {
           locals: Object.merge({
             title: GLOBAL.APP_NAME
-          }),
+          }, options),
           layout: 'public'
         };
       };

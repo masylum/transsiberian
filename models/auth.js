@@ -40,6 +40,8 @@ module.exports = function (app) {
              "To activate your account please visit this link \n" +
              "<a href='" + url + "'>" + url + "</a>"
     });
+
+    return element;
   };
 
   auth.formStrategy = function (req, res, callback) {
