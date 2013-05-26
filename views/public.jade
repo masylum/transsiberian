@@ -31,8 +31,8 @@ html
 
   -var js
   -if(js)
-    script(src: '/javascripts/vendor/jquery.js' )
-    script(src: '/javascripts/global.js' )
+    script(src: '/javascripts/vendor/jquery.js' ).
+    script(src: '/javascripts/global.js' ).
 
     -each file in js
-      script(src: '/javascripts/' + file + '.js' )
+      script(src: '/javascripts/' + file + '.js' ).
